@@ -2,7 +2,7 @@ import os
 from flask_sqlalchemy import SQLAlchemy
 from app import app
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:password@101.132.135.239:3306/ISEAT_DEV?charset=utf8'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('ISEAT_DEV')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 
