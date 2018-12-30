@@ -1,9 +1,9 @@
 import os
 from flask_sqlalchemy import SQLAlchemy
 from app import app
+from config import config
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:password@101.132.135.239:3306/ISEAT_DEV?charset=utf8'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.config.from_beject(config['development'])
 db = SQLAlchemy(app)
 
 class Seat(db.Model):
