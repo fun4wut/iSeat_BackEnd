@@ -27,5 +27,5 @@ def hello_world(n):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 

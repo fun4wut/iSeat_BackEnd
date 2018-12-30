@@ -1,10 +1,4 @@
-import os
-from flask_sqlalchemy import SQLAlchemy
-from app import app
-from config import config
-
-app.config.from_beject(config['development'])
-db = SQLAlchemy(app)
+from . import db
 
 class Seat(db.Model):
     __tablename__ = 'seats'
@@ -27,7 +21,3 @@ class User(db.Model):
     previous_seat = db.Column(db.String(255), nullable=False, primary_key=True, autoincrement=False)
     present_seat = db.Column(db.String(255), nullable=False, primary_key=True, autoincrement=False)
 
-
-
-def initDB():
-    db.create_all()
