@@ -1,5 +1,17 @@
 # HISTROY
 
+## 0.0.2 [2019-2-13]
+
+### Added
+
+- app/static: 存放了 Bootstrap 使用的css和js相关文件。
+- app/templates/common: 网上抄的 header, sidebar, base, footer 的 templates。
+- app/templates/index.html: 主页。
+
+### Modified
+
+- app/templates/common/header.html: 修改了一下，现在更贴切选座位的需求了。
+
 ## 0.0.1 [2018-12-30]
 
 ### Added

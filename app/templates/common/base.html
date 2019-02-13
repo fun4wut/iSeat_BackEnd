@@ -14,10 +14,6 @@
         {% block css %}　<!--css模块区域-->
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-        <!-- 可选的Bootstrap主题文件（一般不用引入） -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}">
-        <!-- Custom styles for this template -->
-        <link href="{{ url_for('static', filename='css/offcanvas.css') }}" rel="stylesheet">
         {% endblock %}
     </head>
 
@@ -37,9 +33,9 @@
         <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
         <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/offcanvas.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
         {% endblock %}
     </body>
 </html>
