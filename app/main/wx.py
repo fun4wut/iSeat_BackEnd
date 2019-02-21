@@ -12,6 +12,7 @@ def overviewOfFloor(n):
     img = [img_url for x in name]
     rest = []
     current = []
+    total = []
     for x in name:
         tmp_seat = Seat.query.filter_by(floor=n,room=x).all()
         tmp_num = len(tmp_seat)
@@ -20,5 +21,6 @@ def overviewOfFloor(n):
             if y.occupied is None: tmp_rest+=1
         rest.append(tmp_rest)
         current.append(tmp_num-tmp_rest)
+        total.append(tmp_num)
 
-    return json.dumps({"img":img,"name":list(name),"rest":rest,"current":current,"num":num},ensure_ascii=False)
+    return json.dumps({"img":img,"name":list(name),"rest":rest,"current":current,"num":num,"total":total},ensure_ascii=False)
