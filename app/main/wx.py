@@ -8,6 +8,7 @@ def overviewOfFloor(n):
     img_url = "https://gss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/37d12f2eb9389b50579fb4a38e35e5dde6116eda.jpg"
     seats = Seat.query.filter_by(floor=n).all()
     name = set([x.room for x in seats])
+    num = len(name)
     img = [img_url for x in name]
     rest = []
     current = []
@@ -20,4 +21,4 @@ def overviewOfFloor(n):
         rest.append(tmp_rest)
         current.append(tmp_num-tmp_rest)
 
-    return json.dumps({"img":img,"name":list(name),"rest":rest,"current":current},ensure_ascii=False)
+    return json.dumps({"img":img,"name":list(name),"rest":rest,"current":current,"num":num},ensure_ascii=False)
