@@ -1,4 +1,6 @@
-from . import db
+from flask_login import UserMixin
+from werkzeug.security import generate_password_hash, check_password_hash
+from . import db, login_manager
 
 class Seat(db.Model):
     __tablename__ = 'seats'
@@ -11,7 +13,7 @@ class Seat(db.Model):
 
 
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     __tablename__ = 'users'
     id = db.Column(db.String(255), nullable=False, primary_key=True, autoincrement=False)
     name = db.Column(db.String(255), nullable=False, primary_key=False, autoincrement=False)
@@ -21,3 +23,22 @@ class User(db.Model):
     previous_seat = db.Column(db.String(255), nullable=False, primary_key=True, autoincrement=False)
     present_seat = db.Column(db.String(255), nullable=False, primary_key=True, autoincrement=False)
 
+    # 用于支持用户登陆
+    email = db.Column(db.String(64), unique=True, index=True)
+    password_hash = db.Column(db.String(128))
+
+    @property
+    def password(self):
+        raise AttributeError('password is not a readable attribute')
+
+    @password.setter
+    def password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def verify_password(self, password):
+        return check_password_hash(self.password_hash, password)
+
+    # 加载用户的函数
+    @login_manager.user_loader
+    def load_user(user_id):
+        return User.query.get(string(user_id))

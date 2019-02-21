@@ -1,0 +1,25 @@
+{% extends "common/base.html" %}
+
+{% block content %}
+
+<form class="mt-5" method="post" action="/login">
+    <!-- email -->
+    <div class="form-group">
+        <label for="InputEmail">Email Address</label>
+        <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <!-- password -->
+    <div class="form-group">
+        <label for="InputPassword">Password</label>
+        <input type="password" class="form-control" id="InputPassword" placeholder="Password">
+    </div>
+    <!-- check me out -->
+    <div class="form-group form-check">
+        <input type="checkbox" id="Check" class="form-check-input">
+        <label class="form-check-label" for="Check">记住我</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}
