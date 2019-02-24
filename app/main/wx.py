@@ -7,7 +7,7 @@ from . import main
 def overviewOfFloor(n):
     img_url = "https://gss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/37d12f2eb9389b50579fb4a38e35e5dde6116eda.jpg"
     areas = Area.query.filter_by(floor=n).all()
-    name = set([x.room for x in seats])
+    name = set([x.room for x in areas])
     num = len(name)
     img = [img_url for x in name]
     rest = []
