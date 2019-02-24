@@ -28,3 +28,6 @@ def overviewOfFloor(n):
 @main.route('/wx/user/<id>',methods=['GET'])
 def overviewOfUser(id):
     pass
+
+def handleArea(area_name: str):
+    pass
