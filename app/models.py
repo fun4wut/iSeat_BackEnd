@@ -24,7 +24,6 @@ class User(UserMixin, db.Model):
     present_seat = db.Column(db.String(255), nullable=False, primary_key=True, autoincrement=False)
 
     # 用于支持用户登陆
-    email = db.Column(db.String(64), unique=True, index=True)
     password_hash = db.Column(db.String(128))
 
     @property
