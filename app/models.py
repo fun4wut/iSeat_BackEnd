@@ -23,7 +23,7 @@ class User(UserMixin, db.Model):
     previous_seat = db.Column(db.String(255), nullable=False, primary_key=False, autoincrement=False)
     present_seat = db.Column(db.String(255), nullable=False, primary_key=False, autoincrement=False)
     condition = db.Column(db.Integer,nullable=False,primary_key=False,autoincrement=False)
-    start_time = db.Column(db.Time,nullable=True,primary_key=False,autoincrement=False)
+    start_time = db.Column(db.DateTime,nullable=True,primary_key=False,autoincrement=False)
     password_hash = db.Column(db.String(255),nullable=True,primary_key=False,autoincrement=False)
     # 用于支持用户登陆
     password_hash = db.Column(db.String(128))
@@ -42,7 +42,7 @@ class User(UserMixin, db.Model):
     # 加载用户的函数
     @login_manager.user_loader
     def load_user(user_id):
-        return User.query.get(string(user_id))
+        return User.query.get(str(user_id))
 
 
 class Table(db.Model):

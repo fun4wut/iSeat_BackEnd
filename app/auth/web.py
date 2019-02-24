@@ -11,8 +11,12 @@ def login():
         user = User.query.filter_by(id=username).first()
         if user is not None and user.verify_password(password):
             login_user(user)
-            return redirect('main.index')
+            return redirect(url_for('main.index'))
         else:
             return render_template('login.html')
     elif request.method == 'GET':
         return render_template('login.html')
+
+@auth.route('/logout', methods=['POST'])
+def logout():
+    pass
