@@ -1,6 +1,6 @@
 import json
 from .. import db
-from ..models import User, Seat, Table
+from ..models import User, Area, Table
 from . import main
 
 @main.route('/wx/floor/<n>', methods=['GET'])
