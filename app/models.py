@@ -29,8 +29,8 @@ class Table(db.Model):
     name = db.Column(db.String(255),nullable=False,primary_key=False,autoincrement=False)
     type = db.Column(db.String(255),nullable=False,primary_key=False,autoincrement=False)
     area = db.Column(db.String(255),nullable=False,primary_key=False,autoincrement=False)
-    ch1 = db.Column(db.String(255),nullable=True,primary_key=False,autoincrement=False)
-    ch2 = db.Column(db.String(255),nullable=True,primary_key=False,autoincrement=False)
-    ch3 = db.Column(db.String(255),nullable=True,primary_key=False,autoincrement=False)
-    ch4 = db.Column(db.String(255),nullable=True,primary_key=False,autoincrement=False)
+    c01 = db.Column(db.String(255),nullable=True,primary_key=False,autoincrement=False)
+    c02 = db.Column(db.String(255),nullable=True,primary_key=False,autoincrement=False)
+    c03 = db.Column(db.String(255),nullable=True,primary_key=False,autoincrement=False)
+    c04 = db.Column(db.String(255),nullable=True,primary_key=False,autoincrement=False)
     
