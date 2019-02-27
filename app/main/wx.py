@@ -35,11 +35,12 @@ def handleArea(area_name: str,floor: int):
 
 @main.route('/wx/floors/<floor>', methods=['GET'])
 def handleFloor(floor: int):
-    A = handleArea("A",floor)
-    B = handleArea("B",floor)
-    return json.dumps({
-        "A": A,
-        "B": B,
-        "ACount": len(A),
-        "BCount": len(B)
-    })
+    # A = handleArea("A",floor)
+    # B = handleArea("B",floor)
+    # return json.dumps({
+    #     "A": A,
+    #     "B": B,
+    #     "ACount": len(A),
+    #     "BCount": len(B)
+    # })
+    return 10
