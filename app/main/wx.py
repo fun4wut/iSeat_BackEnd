@@ -29,5 +29,17 @@ def overviewOfFloor(n):
 def overviewOfUser(id):
     pass
 
-def handleArea(area_name: str):
-    pass
+def handleArea(area_name: str,floor: int):
+    tables = Table.query.filter_by(area_name = area_name).filter(Table.id.like("%d%%"%floor))
+    return tables
+
+@main.route('/wx/floors/<floor>', methods=['GET'])
+def handleFloor(floor: int):
+    A = handleArea("A",floor)
+    B = handleArea("B",floor)
+    return json.dumps({
+        "A": A,
+        "B": B,
+        "ACount": len(A),
+        "BCount": len(B)
+    })
