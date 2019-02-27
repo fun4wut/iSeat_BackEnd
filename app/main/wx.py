@@ -38,9 +38,9 @@ def handleFloor(floor: int):
     A = handleArea("A",floor)
     B = handleArea("B",floor)
     return json.dumps({
-        "A": [{"id":x.id,"name":x.name,"type":x.type,"ch1":x.ch1,"ch2":x.ch2,"ch3":x.ch3,"ch4":x.ch4} for x in A]
-        # "B": [{"id":x.id,"name":x.name,"type":x.type,"ch1":x.ch1,"ch2":x.ch2,"ch3":x.ch3,"ch4":x.ch4} for x in B],
-        "ACount": len(A)
-        # "BCount": len(B)
+        "A": [{"id":x.id,"name":x.name,"type":x.type,"ch1":x.ch1,"ch2":x.ch2,"ch3":x.ch3,"ch4":x.ch4} for x in A],
+        "B": [{"id":x.id,"name":x.name,"type":x.type,"ch1":x.ch1,"ch2":x.ch2,"ch3":x.ch3,"ch4":x.ch4} for x in B],
+        "ACount": len(A),
+        "BCount": len(B)
     })
     #return "hello world"
