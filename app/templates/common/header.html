@@ -1,0 +1,33 @@
+<nav class="navbar fixed-top navbar-light bg-light navbar-expand-lg">
+    <div class="container">
+        <!-- the brand part -->
+        <a class="navbar-brand" href="/">iSeat</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggle-icon"></span>
+            <!-- button 这一段还不知道是干什么用的- - -->
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <!-- 逻辑上，这里应该是从服务器上获取有多少个房间，不过这里暂时不考虑 -->
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Room</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a href="#" class="dropdown-item">Room 1</a>
+                        <a href="#" class="dropdown-item">Room 2</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Room</a>
+                    </div>
+                </li>
+            </ul>
+            {% if current_user.is_authenticated %} 
+            <a href="{{ url_for('auth.logout') }}" class="btn btn-dark btn-sm" role="button" aria-pressed="true">Log Out</a>
+            {% else %}
+            <a href="{{ url_for('auth.login') }}" class="btn btn-dark btn-sm" role="button" aria-pressed="true">Log In</a>
+            {% endif %}
+        </div><!-- /.nav-collapse -->
+    </div><!-- /.container -->
+</nav><!-- /.navbar -->

@@ -1,0 +1,23 @@
+{% extends "common/base.html" %}<!--继承基础模板-->
+{% block content %}<!--自定义模板区域-->
+{% if current_user.is_authenticated %} 
+    <div class="card">
+      <h5 class="card-header">Featured</h5>
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+{% else %}
+    <div class="col-xs-12 mx-auto mt-5 px-0 container">
+        <div class="jumbotron">
+            <h1 class="display-4">iSeat - 座位管理系统</h1>
+            <p class="lead">欢迎使用。</p>
+            <hr class="my-4">
+            <p>登陆其实右上角已经有了，这里其实可以放一些其它东西，介绍之类的？</p>
+            <a href="#" role="button" class="btn btn-primary btn-lg">请登陆</a>
+        </div>
+    </div><!--/.col-xs-12 -->
+{% endif %}
+{% endblock %}
