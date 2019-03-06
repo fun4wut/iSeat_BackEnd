@@ -1,0 +1,50 @@
+{% extends "common/base.html" %}
+{% block content %}
+<div class="col-xs-12 mx-auto mt-5 px-0 container">
+    <h1>第{{n}}楼</h1>
+    <div class="dropdown-divider"></div>
+    <div class="container">
+    <div class="row">
+        {% for key in area.keys() %}
+            <div class="col-xs-4 mx-auto">
+            <h2>区域{{key}}</h2>
+            {% for row in area[key] %}
+                {% for item in row %}
+                    <button 
+                        type="button"
+                        class="btn {{item}}"
+                        data-toggle="modal"
+                        data-target="#exampleModal"
+                    ></button>
+                {% endfor %}
+                <br/>
+            {% endfor %}
+            </div>  
+        {% endfor %}
+    </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+</div>
+<script>
+    fetch("/")
+</script>
+{% endblock %}
