@@ -5,7 +5,7 @@ from . import main
 
 @main.route('/wx/floor/<n>', methods=['GET'])
 def overviewOfFloor(n):
-    img_url = "https://gss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/37d12f2eb9389b50579fb4a38e35e5dde6116eda.jpg"
+    img_url = "https://cdn.pixabay.com/photo/2016/01/27/04/32/books-1163695_1280.jpg"
     areas = Area.query.filter_by(floor=n).all()
     name = set([x.room for x in areas])
     num = len(name)
@@ -43,4 +43,3 @@ def handleFloor(floor: int):
         "ACount": len(A),
         "BCount": len(B)
     })
-    #return "hello world"

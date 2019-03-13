@@ -9,14 +9,13 @@
             <div class="col-xs-4 mx-auto">
             <h2>区域{{key}}</h2>
             {% for row in area[key] %}
-                {% for item in row %}
-                    <button 
-                        type="button"
-                        class="btn {{item}}"
-                        data-toggle="modal"
-                        data-target="#exampleModal"
-                    ></button>
-                {% endfor %}
+                  <button 
+                      type="button"
+                      class="btn {{row['heat']}}"
+                      data-toggle="modal"
+                      data-target="#exampleModal"
+                      onclick="getTableInfo('{{n}}','{{key}}','{{row.get('id')}}')"
+                  >{{row['id']}}</button>
                 <br/>
             {% endfor %}
             </div>  
@@ -29,7 +28,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLabel">详细信息</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -38,13 +37,17 @@
               ...
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+              <button type="button" class="btn btn-primary">确认</button>
             </div>
           </div>
         </div>
 </div>
 <script>
-    fetch("/")
+  async function getTableInfo(floor,area,table){
+    let res = await fetch(`/floor/${floor}/area/${area}/table/${table}`)
+    let data = await res.json()
+    console.log(data)
+  }
 </script>
 {% endblock %}
